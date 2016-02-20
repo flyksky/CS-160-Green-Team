@@ -1,0 +1,25 @@
+<h1>Project Postings</h1>
+<p>
+  
+<%= link_to 'New Post', new_post_path %>
+  
+  &nbsp;&nbsp;&nbsp;
+  
+  <%= link_to 'Search Page', post_search_path(@posts) %>
+
+</p>
+
+<br>
+  
+<% @posts.each do |post| %>
+<h2><%= link_to post.title, post %></h2>
+<p><i><%= friendly_date post.created_at %></i></p>
+<p><%= post.body %></p>
+
+<p>
+<%=link_to 'Edit', edit_post_path(post) %>
+
+<%= button_to 'Destroy', post, method: :delete,
+ data: { confirm: 'Are you sure?' } %>
+</p>
+<% end %>
